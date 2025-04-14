@@ -3,8 +3,8 @@ name: Restrict PR Source
 on:
   pull_request:
     branches:
-      - develop-deploy
-      - production-deploy
+      - dd
+      - pd
 
 jobs:
   check_pr_source:
