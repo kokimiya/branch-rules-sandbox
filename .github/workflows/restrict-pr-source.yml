@@ -1,0 +1,19 @@
+name: Restrict PR Source
+
+on:
+  pull_request:
+    branches:
+      - develop-deploy
+      - production-deploy
+
+jobs:
+  check_pr_source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR source branch
+        run: |
+          echo "PR Source: ${{ github.head_ref }}"
+          if [[ "${{ github.head_ref }}" != "main" ]]; then
+            echo "Only pull requests from 'main' are allowed to 'develop-deploy' or 'production-deploy'."
+            exit 1
+          fi
