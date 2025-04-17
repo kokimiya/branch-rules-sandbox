@@ -1,0 +1,23 @@
+{
+  "enforcement": "active",
+  "name": "main-ruleset",
+  "conditions": {
+    "ref_name": {
+      "include": ["refs/heads/main", "refs/heads/hoge"],
+      "exclude": []
+    }
+  },
+  "rules": [
+    {
+      "parameters": {
+        "dismiss_stale_reviews_on_push": false,
+        "require_code_owner_review": false,
+        "require_last_push_approval": false,
+        "required_approving_review_count": 1,
+        "required_review_thread_resolution": false
+      },
+      "type": "pull_request"
+    }
+  ],
+  "target": "branch"
+}
